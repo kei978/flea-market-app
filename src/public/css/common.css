@@ -1,0 +1,201 @@
+/* ============================
+ヘッダー全体
+============================ */
+.header {
+    width: 100%;
+    background: #000;
+}
+
+.header__inner {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ============================
+左：ロゴ
+============================ */
+.header__logo img {
+    height: 30px;
+    display: block;
+}
+
+/* ============================
+中央：検索フォーム
+============================ */
+.header__center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.header__search-form {
+    width: 60%;
+    max-width: 500px;
+}
+
+.header__search-input {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+.header__search-input:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+/* ============================
+右：ボタン類
+============================ */
+.header__right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.header__btn {
+    padding: 8px 16px;
+    background: transparent;
+    color: #fff;
+    font-size: 14px;
+    text-decoration: none;
+    border: none;
+}
+
+.header__btn:hover {
+    opacity: 0.8;
+}
+
+.header__btn--primary {
+    background: #fff;
+    color: #000;
+}
+
+/* ============================
+スマホ（〜768px）
+============================ */
+@media screen and (max-width: 768px) {
+    .header__inner {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .header__center {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .header__search-form {
+        width: 90%;
+    }
+
+    .header__right {
+        gap: 10px;
+    }
+}
+
+/* ============================
+PC（1400〜1540px）
+============================ */
+@media screen and (min-width: 1400px) and (max-width: 1540px) {
+
+    /* ヘッダー中央揃え */
+    .header__inner {
+        max-width: 1230px;
+        margin: 0 auto;
+    }
+
+    /* 検索フォームを広めに */
+    .header__center {
+        width: 50%;
+    }
+
+    .header__search-form {
+        width: 100%;
+    }
+
+    /* 全画面共通の最大幅 */
+    .container,
+    .profile,
+    .purchase,
+    .sell,
+    .item-list,
+    .content-wrapper {
+        max-width: 1230px;
+        margin: 0 auto;
+    }
+}
+
+/* ============================
+タブレット（768〜850px）
+============================ */
+@media screen and (min-width: 768px) and (max-width: 850px) {
+
+    /* ヘッダーを縦並びに */
+    .header__inner {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .header__left,
+    .header__center,
+    .header__right {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .header__search-form {
+        width: 90%;
+    }
+
+    .header__btn {
+        font-size: 14px;
+        padding: 8px 14px;
+    }
+
+    /* 全体の横幅を縮める */
+    .container,
+    .profile,
+    .purchase,
+    .sell,
+    .item-list,
+    .content-wrapper {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    /* カード系は幅100%に */
+    .card,
+    .profile__item-card,
+    .purchase__card,
+    .sell__form,
+    .item-card {
+        width: 100%;
+    }
+
+    /* 画像は横幅いっぱいに */
+    .profile__item-image img,
+    .purchase__image img,
+    .item__image img {
+        width: 100%;
+        height: auto;
+    }
+
+    /* 文字サイズを少し小さく */
+    h1,
+    h2,
+    h3,
+    p,
+    a,
+    button {
+        font-size: 90%;
+    }
+}

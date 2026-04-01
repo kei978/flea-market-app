@@ -1,0 +1,59 @@
+/* ============================
+    全体レイアウト
+============================ */
+.verify {
+    width: 480px;
+    margin: 60px auto;
+    padding: 40px 0;
+    text-align: center;
+}
+
+/* ============================
+    説明文
+============================ */
+.verify__text {
+    font-size: 14px;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 30px;
+}
+
+/* ============================
+    認証ボタン
+============================ */
+.verify__button {
+    margin-bottom: 25px;
+}
+
+.verify__button-link {
+    display: inline-block;
+    width: 50%;
+    padding: 12px 0;
+    background: #d9d9d9;
+    color: #000;
+    border: 1px solid #000;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.verify__button-link:hover {
+    opacity: 0.9;
+}
+
+/* ============================
+    認証メール再送
+============================ */
+.verify__resend-button {
+    background: none;
+    border: none;
+    color: #007bff;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.verify__resend-button:hover {
+    opacity: 0.8;
+}
