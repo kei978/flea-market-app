@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use App\Models\Category;
 
 class Item extends Model
 {
@@ -26,14 +27,14 @@ class Item extends Model
         'category_ids' => 'array',
     ];
 
+    public function getCategoriesListAttribute()
+    {
+        return Category::whereIn('id', $this->category_ids ?? [])->get();
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);
-    }
-
-    public function getCategoriesAttribute()
-    {
-        return \App\Models\Category::whereIn('id', $this->category_ids)->get();
     }
 
     public function comments()
@@ -51,14 +52,12 @@ class Item extends Model
         return $this->hasMany(Order::class);
     }
 
-    // ★ いいねしているユーザー（逆リレーション）
     public function likedUsers()
     {
         return $this->belongsToMany(User::class, 'likes', 'item_id', 'user_id')
             ->withTimestamps();
     }
 
-    // ★ ログインユーザーがこの商品をいいねしているか判定
     public function isLikedBy($user)
     {
         if (!$user) {

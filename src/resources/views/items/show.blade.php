@@ -90,9 +90,10 @@
 
                 {{-- カテゴリー（丸タグ） --}}
                 <p><strong>カテゴリー</strong>
-                    @foreach ($item->categories as $category)
+                    @foreach ($item->categories_list as $category)
                         <span class="item-show__tag">{{ $category->name }}</span>
                     @endforeach
+
                 </p>
 
                 {{-- 商品の状態 --}}

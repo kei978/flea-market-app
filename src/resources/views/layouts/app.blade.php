@@ -25,19 +25,18 @@
             <div class="header__center">
                 @if (($showSearch ?? false) === true)
                     <form action="/" method="GET" class="header__search-form">
-                        <input type="text" name="keyword" value="{{ request('keyword') }}" class="header__search-input" placeholder="なにをお探しですか？">
+                        <input type="text" name="keyword" value="{{ request('keyword') }}"
+                            class="header__search-input" placeholder="なにをお探しですか？">
                     </form>
                 @endif
             </div>
 
             {{-- 右：ボタン類 --}}
             <div class="header__right">
-                {{-- ログイン前（商品一覧・商品詳細） --}}
                 @if (($authButtons ?? 'none') === 'guest')
                     <a href="{{ route('login') }}" class="header__btn">ログイン</a>
                     <a href="{{ route('login') }}" class="header__btn">マイページ</a>
                     <a href="{{ route('login') }}" class="header__btn header__btn--primary">出品</a>
-                    {{-- ログイン後 --}}
                 @elseif(($authButtons ?? 'none') === 'auth')
                     <form action="/logout" method="POST">
                         @csrf
@@ -45,9 +44,11 @@
                     </form>
                     <a href="{{ route('mypage.index') }}" class="header__btn">マイページ</a>
                     <a href="{{ route('sell.index') }}" class="header__btn header__btn--primary">出品</a>
-                    {{-- ログイン画面・会員登録画面（ロゴのみ） --}}
+                @elseif(($authButtons ?? 'none') === 'none')
+                    {{-- 何も表示しない（ログイン画面・会員登録画面） --}}
                 @endif
             </div>
+
         </div>
     </header>
 

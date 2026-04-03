@@ -14,6 +14,11 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Fortify\Fortify;
+use Illuminate\Support\Facades\Auth;
+use Laravel\Fortify\Contracts\LoginResponse;
+use App\Actions\Fortify\LoginResponse as CustomLoginResponse;
+use Laravel\Fortify\Contracts\RegisterResponse;
+use App\Actions\Fortify\RegisterResponse as CustomRegisterResponse;
 
 class FortifyServiceProvider extends ServiceProvider
 {
@@ -49,17 +54,19 @@ class FortifyServiceProvider extends ServiceProvider
         // 会員登録処理
         Fortify::createUsersUsing(CreateNewUser::class);
 
-        // 🔥 ログイン後のリダイレクトをカスタマイズ
-        Fortify::redirects('login', function () {
-            $user = auth()->user();
+        $this->app->singleton(LoginResponse::class, CustomLoginResponse::class);
+        $this->app->singleton(RegisterResponse::class, CustomRegisterResponse::class);
 
-            // 未認証ならメール認証誘導画面へ
-            if (!$user->hasVerifiedEmail()) {
+        Fortify::redirects('login', function () {
+            $user = Auth::user();
+
+            // 未認証 → メール認証画面へ
+            if (! $user->hasVerifiedEmail()) {
                 return route('verification.notice');
             }
 
-            // 認証済みなら通常のトップへ
-            return route('items.index');
+            // 認証済み → マイリストへ
+            return redirect('/?tab=mylist');
         });
     }
 }

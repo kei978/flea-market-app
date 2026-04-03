@@ -74,7 +74,7 @@ return [
     |
     */
 
-    'home' => '/mypage/profile',
+    'home' => null,
 
     /*
     |--------------------------------------------------------------------------
@@ -103,6 +103,8 @@ return [
     */
 
     'middleware' => ['web'],
+
+    'auth_middleware' => 'auth',
 
     /*
     |--------------------------------------------------------------------------
@@ -150,12 +152,6 @@ return [
         Features::emailVerification(),
         Features::updateProfileInformation(),
         Features::updatePasswords(),
-        Features::twoFactorAuthentication([
-            'confirm' => true,
-            'confirmPassword' => true,
-            // 'window' => 0,
-        ]),
-        Laravel\Fortify\Features::emailVerification(),
     ],
 
 ];
