@@ -3,6 +3,8 @@
 /public/storage
 /storage/*.key
 /vendor
+/src/vendor/
+/src/.composer/
 .env
 .env.backup
 .phpunit.result.cache
@@ -14,4 +16,3 @@ yarn-error.log
 /.idea
 /.vscode
 docker/mysql/data/
-/src/.composer/
