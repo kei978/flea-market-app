@@ -50,7 +50,7 @@
 
 ## ER図
 
-![ER図](../docs/flea-market-app.png)
+![ER図](docs/flea-market-app.png)
 
 ## URL一覧
 
