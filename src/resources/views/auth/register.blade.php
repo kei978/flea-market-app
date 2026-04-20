@@ -10,14 +10,14 @@
 @section('content')
     <div class="card">
         <div class="card__title">
-            <h2>会員登録</h2>
+            <h1>会員登録</h1>
         </div>
         <form action="/register" class="form" method="POST">
             @csrf
             {{-- ユーザー名 --}}
             <div class="form__group">
                 <div class="form__group-title">
-                    <span class="form__label">ユーザー名</span>
+                    <h2 class="form__label">ユーザー名</h2>
                 </div>
                 <div class="form__group-content">
                     <div class="form__input--text">
@@ -33,7 +33,7 @@
             {{-- メールアドレス --}}
             <div class="form__group">
                 <div class="form__group-title">
-                    <span class="form__label">メールアドレス</span>
+                    <h2 class="form__label">メールアドレス</h2>
                 </div>
                 <div class="form__group-content">
                     <div class="form__input--text">
@@ -49,7 +49,7 @@
             {{-- パスワード --}}
             <div class="form__group">
                 <div class="form__group-title">
-                    <span class="form__label">パスワード</span>
+                    <h2 class="form__label">パスワード</h2>
                 </div>
                 <div class="form__group-content">
                     <div class="form__input--text">
@@ -67,7 +67,7 @@
             {{-- 確認用パスワード --}}
             <div class="form__group">
                 <div class="form__group-title">
-                    <span class="form__label">確認用パスワード</span>
+                    <h2 class="form__label">確認用パスワード</h2>
                 </div>
                 <div class="form__group-content">
                     <div class="form__input--text">
@@ -77,7 +77,6 @@
                         @foreach ($errors->get('password_confirmation') as $error)
                             {{ $error }}<br>
                         @endforeach
-
                         @if ($errors->first('password') === 'パスワードと一致しません')
                             パスワードと一致しません<br>
                         @endif

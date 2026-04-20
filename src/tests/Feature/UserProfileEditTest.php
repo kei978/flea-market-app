@@ -14,6 +14,7 @@ class UserProfileEditTest extends TestCase
     /** プロフィール編集画面に初期値が正しく表示される */
     public function test_profile_edit_page_displays_initial_values()
     {
+
         // ユーザー作成
         $user = User::factory()->create([
             'name' => '福岡　太郎',
@@ -30,13 +31,13 @@ class UserProfileEditTest extends TestCase
 
         // プロフィール編集画面へアクセス
         /** @var \App\Models\User $user */
-        $response = $this->actingAs($user)->get('/mypage/profile/edit');
+        $response = $this->actingAs($user)->get('/mypage/profile');
 
         // プロフィール画像
         $response->assertSee('avatar.png');
 
         // ユーザー名
-        $response->assertSee('啓太');
+        $response->assertSee('福岡　太郎');
 
         // 郵便番号
         $response->assertSee('810-0001');

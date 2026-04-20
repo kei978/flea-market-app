@@ -1,6 +1,4 @@
-/* ============================
-    全体レイアウト
-============================ */
+/* 全体 */
 .verify {
     width: 480px;
     margin: 60px auto;
@@ -8,19 +6,15 @@
     text-align: center;
 }
 
-/* ============================
-    説明文
-============================ */
+/* 説明文 */
 .verify__text {
+    margin-bottom: 30px;
     font-size: 14px;
     font-weight: bold;
     color: #000;
-    margin-bottom: 30px;
 }
 
-/* ============================
-    認証ボタン
-============================ */
+/* 認証ボタン */
 .verify__button {
     margin-bottom: 25px;
 }
@@ -42,9 +36,7 @@
     opacity: 0.9;
 }
 
-/* ============================
-    認証メール再送
-============================ */
+/* 認証メール再送 */
 .verify__resend-button {
     background: none;
     border: none;

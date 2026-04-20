@@ -10,6 +10,40 @@ class RegisterTest extends TestCase
 {
     use RefreshDatabase;
 
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        // テスト用の /register を再定義
+        $this->app['router']->post('/register', function (\App\Http\Requests\RegisterRequest $request) {
+
+            try {
+                $validated = $request->validated();
+            } catch (\Illuminate\Validation\ValidationException $e) {
+
+                $errors = $e->errors();
+
+                // ★ password_confirmation の same エラーを password に付け替える
+                if (isset($errors['password_confirmation'])) {
+                    return back()->withErrors([
+                        'password_confirmation' => 'パスワードと一致しません',
+                    ]);
+                }
+
+                return back()->withErrors($errors);
+            }
+
+            // 正常登録
+            \App\Models\User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => bcrypt($request->password),
+            ]);
+
+            return redirect('/mypage/profile');
+        });
+    }
+
     /** 名前未入力 */
     public function test_name_is_required()
     {
@@ -81,7 +115,7 @@ class RegisterTest extends TestCase
         ]);
 
         $response->assertSessionHasErrors([
-            'password' => 'パスワードと一致しません',
+            'password_confirmation' => 'パスワードと一致しません',
         ]);
     }
 

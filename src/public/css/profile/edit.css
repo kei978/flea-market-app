@@ -1,32 +1,22 @@
-/* ============================
-    カード全体
-============================ */
+/* カード全体 */
 .card {
     width: 480px;
     margin: 0 auto;
     padding: 40px 50px;
 }
 
-/* ============================
-    タイトル
-============================ */
+/* タイトル */
 .card__title {
     text-align: center;
     margin-bottom: 30px;
-    font-weight: bold;
 }
 
-/* ============================
-    フォーム全体
-============================ */
+/* フォーム全体 */
 .form {
     width: 100%;
 }
 
-/* ============================
-    プロフィール画像
-============================ */
-/* アイコンの枠（丸いグレー背景） */
+/* プロフィール画像 */
 .form__avatar-image {
     width: 120px;
     height: 120px;
@@ -34,7 +24,6 @@
     background-color: #e5e5e5;
     overflow: hidden;
     display: inline-block;
-    /* ← flex を使わない */
 }
 
 /* 画像がある場合だけ表示される */
@@ -51,10 +40,8 @@
     align-items: center;
     gap: 40px;
     margin-bottom: 30px;
-    /* ← 元のレイアウトを維持 */
 }
 
-/* input[type=file] を非表示 */
 .form__avatar-input {
     display: none;
 }
@@ -77,9 +64,7 @@
     opacity: 0.9;
 }
 
-/* ============================
-    各フォームグループ
-============================ */
+/* 各フォームグループ */
 .form__group {
     margin-bottom: 20px;
 }
@@ -89,13 +74,11 @@
 }
 
 .form__label {
-    font-size: 14px;
-    font-weight: bold;
+    margin-bottom: 0;
+    font-size: 18px;
 }
 
-/* ============================
-    入力欄
-============================ */
+/* 入力欄 */
 .form__input--text-input {
     width: 100%;
     padding: 10px 12px;
@@ -109,18 +92,14 @@
     border-color: #007bff;
 }
 
-/* ============================
-    エラー表示
-============================ */
+/* エラー表示 */
 .form__error {
     margin-top: 4px;
     color: red;
     font-size: 12px;
 }
 
-/* ============================
-    ボタン
-============================ */
+/* ボタン */
 .form__button {
     text-align: center;
     margin-top: 30px;
@@ -141,9 +120,7 @@
     opacity: 0.9;
 }
 
-/* ============================
-    ログインはこちら
-============================ */
+/* ログインはこちら */
 .form__link {
     text-align: center;
     margin-top: 20px;

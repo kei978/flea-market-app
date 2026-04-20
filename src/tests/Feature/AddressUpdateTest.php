@@ -6,7 +6,6 @@ use Tests\TestCase;
 use App\Models\User;
 use App\Models\Item;
 use App\Models\Address;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\DB;
 
 
@@ -15,7 +14,6 @@ class AddressUpdateTest extends TestCase
     /** 購入画面に更新後の住所が反映される */
     public function test_updated_address_is_reflected_in_purchase_page()
     {
-
         $this->withoutMiddleware();
 
         $user = User::factory()->create([
@@ -32,11 +30,10 @@ class AddressUpdateTest extends TestCase
             'user_id' => $seller->id,
         ]);
 
-
         /** @var \App\Models\User $user */
         $this->actingAs($user);
 
-        $this->post("/purchase/{$item->id}/address/update", [
+        $this->post("/purchase/address/{$item->id}/update", [
             'postal_code' => '810-0001',
             'address'     => '福岡市中央区天神2-2-2',
             'building'    => '新ビル202',
@@ -76,7 +73,7 @@ class AddressUpdateTest extends TestCase
         /** @var \App\Models\User $user */
         $this->actingAs($user);
 
-        $this->post("/purchase/{$item->id}/address/update", [
+        $this->post("/purchase/address/{$item->id}/update", [
             'postal_code' => '810-0001',
             'address'     => '福岡市中央区天神2-2-2',
             'building'    => '新ビル202',

@@ -1,18 +1,37 @@
+# Node
 /node_modules
+
+# Laravel
 /public/hot
 /public/storage
 /storage/*.key
-/vendor
+/storage/logs
+/storage/framework/cache
+/storage/framework/sessions
+/storage/framework/views
+
+# Composer
 /src/vendor/
 /src/.composer/
+
+# Environment
 .env
 .env.backup
+
+# PHPUnit
 .phpunit.result.cache
-docker-compose.override.yml
-Homestead.json
-Homestead.yaml
-npm-debug.log
-yarn-error.log
+
+# Docker
+docker/mysql/data/
+
+# IDE
 /.idea
 /.vscode
-docker/mysql/data/
+
+# Misc
+npm-debug.log
+yarn-error.log
+
+# Homestead (not used)
+Homestead.json
+Homestead.yaml

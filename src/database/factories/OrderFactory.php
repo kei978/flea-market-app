@@ -5,7 +5,6 @@ namespace Database\Factories;
 use App\Models\Order;
 use App\Models\User;
 use App\Models\Item;
-use App\Models\PaymentMethod;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class OrderFactory extends Factory
@@ -17,7 +16,7 @@ class OrderFactory extends Factory
         return [
             'item_id' => Item::factory(),
             'buyer_id' => User::factory(),
-            'payment_method_id' => PaymentMethod::factory(),
+            'payment_method_id' => $this->faker->randomElement([1, 2]),
             'price' => $this->faker->numberBetween(100, 5000),
             'status' => 1,
         ];

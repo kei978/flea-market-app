@@ -1,6 +1,4 @@
-/* ============================
-    全体レイアウト
-============================ */
+/* 全体レイアウト */
 .purchase {
     width: 100%;
     max-width: 1000px;
@@ -10,14 +8,12 @@
     gap: 50px;
 }
 
-/* ============================
-    左側：商品情報
-============================ */
+/* 商品情報 */
 .purchase__left {
     width: 60%;
 }
 
-/* 商品画像 + 商品名 + 価格（横並び） */
+/* 商品画像 + 商品名 + 価格 */
 .purchase__product {
     display: flex;
     align-items: flex-start;
@@ -25,7 +21,7 @@
     margin-bottom: 25px;
 }
 
-/* 左側：商品画像 */
+/* 商品画像 */
 .purchase__product-image {
     width: 160px;
     height: 160px;
@@ -40,14 +36,12 @@
     object-fit: contain;
 }
 
-/* 右側：商品名と価格 */
+/* 商品名と価格 */
 .purchase__product-info {
     flex: 1;
 }
 
 .purchase__title {
-    font-size: 22px;
-    font-weight: bold;
     margin-bottom: 10px;
     line-height: 1.2;
 }
@@ -57,22 +51,17 @@
     font-weight: bold;
 }
 
-/* ============================
-    セクション
-============================ */
+/* セクション */
 .purchase__section {
     margin-top: 35px;
 }
 
 .purchase__section-title {
     font-size: 18px;
-    font-weight: bold;
     margin-bottom: 12px;
 }
 
-/* ============================
-    支払い方法
-============================ */
+/* 支払い方法 */
 .purchase__select {
     width: 100%;
     padding: 12px 14px;
@@ -82,9 +71,7 @@
     background: #fff;
 }
 
-/* ============================
-    配送先
-============================ */
+/* 配送先 */
 .purchase__address {
     font-size: 15px;
     line-height: 1.7;
@@ -102,21 +89,18 @@
     text-decoration: underline;
 }
 
-/* ============================
-    右側：小計
-============================ */
+/* 小計 */
 .purchase__right {
     width: 40%;
 }
 
-/* 小計ボックス（枠 + padding） */
 .purchase__summary {
     border: 1px solid #000;
     background: #fff;
     padding: 0;
 }
 
-/* 各行（上下左右中央揃え + 高さ統一） */
+/* 各行 */
 .purchase__summary-row {
     display: flex;
     justify-content: space-between;
@@ -125,17 +109,14 @@
     padding: 30px 50px;
     font-size: 15px;
     box-sizing: border-box;
-
 }
 
-/* 商品代金と支払い方法の間の線（枠いっぱい） */
+/* 商品代金と支払い方法の間の線 */
 .purchase__summary-row--border {
     border-bottom: 1px solid #000;
 }
 
-/* ============================
-    購入ボタン
-============================ */
+/* 購入ボタン */
 .purchase__button {
     margin-top: 20px;
     width: 100%;
@@ -152,33 +133,27 @@
     opacity: 0.9;
 }
 
-/* 商品情報 → 支払い方法の間の線 */
 .purchase__section--payment {
     border-top: 1px solid #000;
     padding-top: 25px;
     margin-top: 25px;
 }
 
-/* 支払い方法 → 配送先の間の線 */
 .purchase__section--address {
     border-top: 1px solid #000;
     padding-top: 25px;
     margin-top: 25px;
 }
 
-/* 配送先の下にも線を入れる */
 .purchase__section--address-bottom {
     border-bottom: 1px solid #000;
     padding-bottom: 25px;
     margin-bottom: 25px;
 }
 
-/* 配送先タイトルと変更するを横並びにして両端に配置 */
 .purchase__section-header {
     display: flex;
     justify-content: space-between;
-    /* ← 左右に配置 */
     align-items: center;
-    /* ← 縦位置を揃える */
     margin-bottom: 10px;
 }

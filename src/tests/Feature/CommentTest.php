@@ -5,7 +5,6 @@ namespace Tests\Feature;
 use Tests\TestCase;
 use App\Models\User;
 use App\Models\Item;
-use App\Models\Comment;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class CommentTest extends TestCase
@@ -30,7 +29,7 @@ class CommentTest extends TestCase
             'comment' => 'とても良い商品ですね！',
         ]);
 
-        $response->assertRedirect(); // 遷移先はあなたのアプリに合わせて変更
+        $response->assertRedirect();
     }
 
     /** 未ログインユーザーはコメントを送信できない */
@@ -81,7 +80,7 @@ class CommentTest extends TestCase
         ]);
 
         $response->assertSessionHasErrors([
-            'comment' => 'コメントは255文字以内で入力してください',
+            'comment' => '255文字以内で入力してください',
         ]);
     }
 }

@@ -20,7 +20,6 @@
                     <img src="{{ asset('images/COACHTECHヘッダーロゴ.png') }}" alt="COACHTECH">
                 </a>
             </div>
-
             {{-- 中央：検索欄（必要な画面のみ） --}}
             <div class="header__center">
                 @if (($showSearch ?? false) === true)
@@ -30,7 +29,6 @@
                     </form>
                 @endif
             </div>
-
             {{-- 右：ボタン類 --}}
             <div class="header__right">
                 @if (($authButtons ?? 'none') === 'guest')
@@ -48,7 +46,6 @@
                     {{-- 何も表示しない（ログイン画面・会員登録画面） --}}
                 @endif
             </div>
-
         </div>
     </header>
 

@@ -12,7 +12,7 @@ class ItemFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => null, // ★ テスト側で指定するため null にする
+            'user_id' => \App\Models\User::factory(),
             'title' => $this->faker->word(),
             'brand' => $this->faker->word(),
             'description' => $this->faker->sentence(),
@@ -20,7 +20,7 @@ class ItemFactory extends Factory
             'condition' => 1,
             'status' => 1,
             'image_path' => 'test.jpg',
-            'category_ids' => json_encode([1, 2]),
+            'category_ids' => [1, 2],
         ];
     }
 }

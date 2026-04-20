@@ -22,7 +22,7 @@ class ExhibitionController extends Controller
         // 画像保存
         $path = $request->file('image')->store('items', 'public');
 
-        // 商品登録（カテゴリは JSON 配列）
+        // 商品登録
         Item::create([
             'user_id' => Auth::id(),
             'title' => $request->title,

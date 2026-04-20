@@ -23,14 +23,14 @@ class ItemShowTest extends TestCase
         $cat1 = Category::factory()->create(['name' => 'メンズ']);
         $cat2 = Category::factory()->create(['name' => 'スニーカー']);
 
-        // 商品作成（category_ids は JSON 配列）
+        // 商品作成
         $item = Item::factory()->create([
             'title' => 'ナイキ エアマックス',
             'brand' => 'NIKE',
             'price' => 12000,
             'description' => "とても綺麗な状態です。\nほぼ未使用。",
             'condition' => 1,
-            'category_ids' => json_encode([$cat1->id, $cat2->id]),
+            'category_ids' => [$cat1->id, $cat2->id],
         ]);
 
         // いいね数
@@ -50,7 +50,7 @@ class ItemShowTest extends TestCase
         // 商品基本情報
         $response->assertSee('ナイキ エアマックス');
         $response->assertSee('NIKE');
-        $response->assertSee('12000');
+        $response->assertSee('12,000');
         $response->assertSee('とても綺麗な状態です。');
         $response->assertSee('ほぼ未使用。');
 
@@ -58,8 +58,8 @@ class ItemShowTest extends TestCase
         $response->assertSee('メンズ');
         $response->assertSee('スニーカー');
 
-        // 商品状態（あなたのアプリの表示に合わせて変更可能）
-        $response->assertSee('新品'); // condition=1 の場合の表示
+        // 商品状態
+        $response->assertSee('良好');
 
         // いいね数
         $response->assertSee('3');
@@ -79,7 +79,7 @@ class ItemShowTest extends TestCase
         $cat2 = Category::factory()->create(['name' => 'スニーカー']);
 
         $item = Item::factory()->create([
-            'category_ids' => json_encode([$cat1->id, $cat2->id]),
+            'category_ids' => [$cat1->id, $cat2->id],
         ]);
 
         $response = $this->get("/item/{$item->id}");

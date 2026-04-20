@@ -10,7 +10,7 @@
 @section('content')
     <div class="card">
         <div class="card__title">
-            <h2>プロフィール設定</h2>
+            <h1>プロフィール設定</h1>
         </div>
         <form action="{{ route('mypage.update') }}" class="form" method="POST" enctype="multipart/form-data">
             @csrf
@@ -47,7 +47,7 @@
             {{-- ユーザー名 --}}
             <div class="form__group">
                 <div class="form__group-title">
-                    <span class="form__label">ユーザー名</span>
+                    <h2 class="form__label">ユーザー名</h2>
                 </div>
                 <div class="form__group-content">
                     <div class="form__input--text">
@@ -64,7 +64,7 @@
             {{-- 郵便番号 --}}
             <div class="form__group">
                 <div class="form__group-title">
-                    <span class="form__label">郵便番号</span>
+                    <h2 class="form__label">郵便番号</h2>
                 </div>
                 <div class="form__group-content">
                     <div class="form__input--text">
@@ -81,7 +81,7 @@
             {{-- 住所 --}}
             <div class="form__group">
                 <div class="form__group-title">
-                    <span class="form__label">住所</span>
+                    <h2 class="form__label">住所</h2>
                 </div>
                 <div class="form__group-content">
                     <div class="form__input--text">
@@ -98,7 +98,7 @@
             {{-- 建物名 --}}
             <div class="form__group">
                 <div class="form__group-title">
-                    <span class="form__label">建物名</span>
+                    <h2 class="form__label">建物名</h2>
                 </div>
                 <div class="form__group-content">
                     <div class="form__input--text">

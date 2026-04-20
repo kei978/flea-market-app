@@ -12,12 +12,18 @@ class UserProfileTest extends TestCase
 {
     use RefreshDatabase;
 
+    public function setUp(): void
+    {
+        parent::setUp();
+        $this->seed(\Database\Seeders\PaymentMethodSeeder::class);
+    }
+
     /** プロフィール画面で必要な情報が取得できる */
     public function test_user_profile_displays_required_information()
     {
         // ユーザー作成
         $user = User::factory()->create([
-            'name' => '啓太',
+            'name' => '福岡　太郎',
             'avatar' => 'avatar.png',
         ]);
 
@@ -40,23 +46,25 @@ class UserProfileTest extends TestCase
         Order::factory()->create([
             'buyer_id' => $user->id,
             'item_id' => $purchasedItem->id,
+            'payment_method_id' => 2, // card
         ]);
 
-        // プロフィール画面へアクセス
+        // マイページ（出品商品一覧）へアクセス
         /** @var \App\Models\User $user */
-        $response = $this->actingAs($user)->get('/mypage/profile');
+        $response = $this->actingAs($user)->get('/mypage?page=sell');
 
         // プロフィール画像
         $response->assertSee('avatar.png');
 
         // ユーザー名
-        $response->assertSee('啓太');
+        $response->assertSee('福岡　太郎');
 
         // 出品した商品一覧
         $response->assertSee('出品商品A');
         $response->assertSee('出品商品B');
 
         // 購入した商品一覧
-        $response->assertSee('購入商品C');
+        $responseBuy = $this->actingAs($user)->get('/mypage?page=buy');
+        $responseBuy->assertSee('購入商品C');
     }
 }

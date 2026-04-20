@@ -1,6 +1,4 @@
-/* ============================
-   プロフィール全体
-============================ */
+/* プロフィール全体 */
 .profile {
     width: 100%;
     max-width: 900px;
@@ -8,35 +6,25 @@
     text-align: center;
 }
 
-/* ============================
-   アイコン・名前・編集ボタン（横並び）
-============================ */
+/* アイコン・名前・編集ボタン */
 .profile__header {
     display: flex;
     align-items: center;
-    /* 縦方向の中央揃え */
     justify-content: center;
-    /* 横方向の中央揃え */
     gap: 30px;
-    /* 各要素の間隔 */
     margin: 30px 0;
 }
 
-/* ============================
-   プロフィール画像
-============================ */
-/* アイコンの枠（丸いグレー背景） */
+/* プロフィール画像 */
 .profile__avatar {
     width: 80px;
     height: 80px;
     border-radius: 50%;
     background-color: #e5e5e5;
-    /* ← プロフィール設定画面と同じ */
     overflow: hidden;
     flex-shrink: 0;
 }
 
-/* 画像がある場合だけ表示される */
 .profile__avatar img {
     width: 100%;
     height: 100%;
@@ -44,19 +32,14 @@
     display: block;
 }
 
-/* ============================
-   ユーザー名
-============================ */
+/* ユーザー名 */
 .profile__name {
-    font-size: 20px;
-    font-weight: bold;
     margin: 0;
-    margin-right: 200px
+    margin-right: 200px;
+    font-size: 20px;
 }
 
-/* ============================
-   プロフィール編集ボタン（赤ボタン）
-============================ */
+/* プロフィール編集ボタン */
 .profile__edit-button {
     display: inline-block;
     padding: 10px 20px;
@@ -68,9 +51,7 @@
     font-weight: bold;
 }
 
-/* ============================
-   タブ
-============================ */
+/* タブ */
 .profile__tabs {
     display: flex;
     justify-content: flex-start;
@@ -93,9 +74,7 @@
     color: red;
 }
 
-/* ============================
-   商品一覧（3カラム固定）
-============================ */
+/* 商品一覧 */
 .profile__items {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -119,7 +98,6 @@
     width: 100%;
     height: 100%;
     object-fit: contain;
-    /* ← 切れない */
     background: #fff;
 }
 

@@ -19,21 +19,21 @@ class PaymentMethodTest extends TestCase
         $item = Item::factory()->create();
         Address::factory()->create(['user_id' => $user->id]);
 
-        // 1. 支払い方法を選択（updatePayment）
+        // 支払い方法を選択
         /** @var \App\Models\User $user */
         $response = $this->actingAs($user)->post("/purchase/{$item->id}/payment", [
             'payment_method' => 'card',
         ]);
 
-        $response->assertRedirect(); // 元の画面に戻る
+        $response->assertRedirect();
 
         // セッションに保存されていることを確認
         $this->assertEquals('card', session()->get("payment_method_{$item->id}"));
 
-        // 2. 購入画面を開く
+        // 購入画面を開く
         $response = $this->actingAs($user)->get("/purchase/{$item->id}");
 
         // 画面に選択した支払い方法が反映されている
-        $response->assertSee('card'); // Blade の表示に合わせて変更可能
+        $response->assertSee('card');
     }
 }

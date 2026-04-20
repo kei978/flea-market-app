@@ -64,6 +64,6 @@ class LoginTest extends TestCase
         ]);
 
         $this->assertAuthenticatedAs($user);
-        $response->assertRedirect('/'); // ログイン後の遷移先に合わせて変更
+        $response->assertRedirect('/?tab=mylist');
     }
 }

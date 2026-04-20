@@ -84,7 +84,7 @@
                     @enderror
                 </div>
             </div>
-            {{-- 商品説明 --}}
+            {{-- 商品の説明 --}}
             <h3 class="form__label">商品の説明</h3>
             <div class="form__group">
                 <textarea name="description" class="form__textarea--inputlike">{{ old('description') }}</textarea>
@@ -135,13 +135,11 @@
         });
     </script>
 
-
     {{-- 画像プレビュー用スクリプト --}}
     <script>
         document.getElementById('image').addEventListener('change', function(e) {
             const file = e.target.files[0];
             if (!file) return;
-
             const preview = document.getElementById('preview');
             preview.src = URL.createObjectURL(file);
             preview.style.display = 'block';

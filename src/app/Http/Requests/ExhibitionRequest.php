@@ -16,9 +16,7 @@ class ExhibitionRequest extends FormRequest
         return true;
     }
 
-    /**
-     * バリデーション前に実行される前処理
-     */
+    /* バリデーション前に実行される前処理 */
     protected function prepareForValidation()
     {
         if ($this->price) {

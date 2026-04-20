@@ -4,9 +4,8 @@
 }
 
 .profile-address__title {
-    font-size: 22px;
-    font-weight: bold;
     margin-bottom: 25px;
+    text-align: center;
 }
 
 .profile-address__form {
@@ -19,17 +18,15 @@
 
 .form__label {
     display: block;
-    font-size: 14px;
-    font-weight: bold;
     margin-bottom: 6px;
 }
 
 .profile-address__avatar img {
     width: 120px;
     height: 120px;
+    margin-bottom: 10px;
     border-radius: 50%;
     object-fit: cover;
-    margin-bottom: 10px;
 }
 
 .form__input,

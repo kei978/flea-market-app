@@ -57,7 +57,6 @@ class ItemController extends Controller
         return view('items.show', compact('item'));
     }
 
-
     // いいね機能
     public function like($id)
     {
@@ -68,6 +67,7 @@ class ItemController extends Controller
         } else {
             $item->likedUsers()->attach($user->id);
         }
+
         return back();
     }
 
@@ -82,13 +82,4 @@ class ItemController extends Controller
 
         return back();
     }
-
-
-    public function create()
-    {
-        $categories = Category::all();
-        return view('items.create', compact('categories'));
-    }
-
-    public function store(Request $request) {}
 }

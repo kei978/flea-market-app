@@ -9,10 +9,9 @@
 
 @section('content')
     <div class="purchase">
-
-        {{-- 左側：商品情報 --}}
+        {{-- 商品情報 --}}
         <div class="purchase__left">
-            {{-- 商品画像 + 商品名 + 価格（横並び） --}}
+            {{-- 商品画像 + 商品名 + 価格--}}
             <div class="purchase__product">
                 <div class="purchase__product-image">
                     <img src="{{ $item->image_url }}" alt="商品画像">
@@ -22,7 +21,6 @@
                     <p class="purchase__price">¥{{ number_format($item->price) }}</p>
                 </div>
             </div>
-
             {{-- 支払い方法 --}}
             <div class="purchase__section purchase__section--payment">
                 <h3 class="purchase__section-title">支払い方法</h3>
@@ -38,9 +36,7 @@
                         </option>
                     </select>
                 </form>
-
             </div>
-
             {{-- 配送先 --}}
             <div class="purchase__section purchase__section--address purchase__section--address-bottom">
                 <div class="purchase__section-header">
@@ -56,8 +52,7 @@
                 </p>
             </div>
         </div>
-
-        {{-- 右側：小計 --}}
+        {{-- 小計 --}}
         <div class="purchase__right">
             <div class="purchase__summary">
                 <p class="purchase__summary-row purchase__summary-row--border">
@@ -77,16 +72,13 @@
                     </span>
                 </p>
             </div>
-
             {{-- 購入ボタンは枠の外 --}}
             <form action="{{ route('purchase.store', $item->id) }}" method="POST">
                 @csrf
                 <input type="hidden" name="payment_method" value="{{ $payment_method }}">
                 <button type="submit" class="purchase__button">購入する</button>
             </form>
-
         </div>
     </div>
-
     </div>
 @endsection

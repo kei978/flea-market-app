@@ -20,7 +20,7 @@ class CreateItemsTable extends Migration
             $table->string('brand', 255)->nullable();
             $table->text('description');
             $table->integer('price');
-            $table->json('category_ids'); // ★複数カテゴリ
+            $table->json('category_ids');
             $table->tinyInteger('condition');
             $table->tinyInteger('status');
             $table->string('image_path', 255)->nullable();

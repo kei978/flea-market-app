@@ -1,36 +1,61 @@
-# アプリケーション名
+# Flea Market App（フリマアプリ）
 
-- Flea Market App
+## Docker ビルド
 
-## Dockerビルド
-
-- git clone
-- docker compose up -d --build
+1. リポジトリをクローン
+   ```bash
+   git clone <REPOSITORY_URL>
+   ```
+2. コンテナをビルド
+   ```bash
+   docker compose up -d --build
+   ```
 
 ## 環境構築
 
-- docker compose exec php bash
-- composer install
-- cp .env.example .env ,環境変数を適宜変更
-- php artisan key:generate
-- php artisan migrate
-- php artisan db:seed
+1. PHP コンテナに入る
+   ```bash
+   docker compose exec php bash
+   ```
+2. Composer インストール
+   ```bash
+   composer install
+   ```
+3. `.env` ファイルを作成し、環境変数を適宜変更
+   ```bash
+   cp .env.example .env
+   ```
+4. アプリケーションキー作成
+   ```bash
+   php artisan key:generate
+   ```
+5. マイグレーション実行
+   ```bash
+   php artisan migrate
+   ```
+6. シーディング実行
+   ```bash
+   php artisan db:seed
+   ```
 
-## 使用技術(実行環境)
+## 使用技術（実行環境）
 
-- PHP 8.1
-- Laravel 8.x
-- MySQL mysql:8.0.26
-- nginx 1.21.1
+- PHP **8.2**
+- Laravel **8.x**
+- MySQL **8.0.26**
+- nginx **1.21.1**
 - Docker / Docker Compose
 - phpMyAdmin
+- MailHog（メール確認用）
 
 ## ER図
 
-![ER図](../docs/contact-form.png)
+![ER図](../docs/flea-market-app.png)
 
-## URL
+## URL一覧
 
-- お問い合わせフォーム入力画面：http://localhost/
+- トップページ：http://localhost/
 - ユーザ登録画面：http://localhost/register
 - phpMyAdmin：http://localhost:8080/
+- MailHog（メール確認）：http://localhost:8025/
+

@@ -1,6 +1,4 @@
-/* ============================
-ヘッダー全体
-============================ */
+/* ヘッダー全体 */
 .header {
     width: 100%;
     background: #000;
@@ -13,17 +11,13 @@
     align-items: center;
 }
 
-/* ============================
-左：ロゴ
-============================ */
+/* 左：ロゴ */
 .header__logo img {
     height: 30px;
     display: block;
 }
 
-/* ============================
-中央：検索フォーム
-============================ */
+/* 中央：検索フォーム */
 .header__center {
     flex: 1;
     display: flex;
@@ -48,9 +42,7 @@
     border-color: #007bff;
 }
 
-/* ============================
-右：ボタン類
-============================ */
+/* 右：ボタン類 */
 .header__right {
     display: flex;
     align-items: center;
@@ -75,9 +67,7 @@
     color: #000;
 }
 
-/* ============================
-スマホ（〜768px）
-============================ */
+/* スマホ（〜768px） */
 @media screen and (max-width: 768px) {
     .header__inner {
         flex-direction: column;
@@ -98,18 +88,13 @@
     }
 }
 
-/* ============================
-PC（1400〜1540px）
-============================ */
+/* PC（1400〜1540px） */
 @media screen and (min-width: 1400px) and (max-width: 1540px) {
-
-    /* ヘッダー中央揃え */
     .header__inner {
         max-width: 1230px;
         margin: 0 auto;
     }
 
-    /* 検索フォームを広めに */
     .header__center {
         width: 50%;
     }
@@ -118,7 +103,6 @@ PC（1400〜1540px）
         width: 100%;
     }
 
-    /* 全画面共通の最大幅 */
     .container,
     .profile,
     .purchase,
@@ -130,12 +114,8 @@ PC（1400〜1540px）
     }
 }
 
-/* ============================
-タブレット（768〜850px）
-============================ */
+/* タブレット（768〜850px） */
 @media screen and (min-width: 768px) and (max-width: 850px) {
-
-    /* ヘッダーを縦並びに */
     .header__inner {
         flex-direction: column;
         align-items: center;
@@ -161,7 +141,6 @@ PC（1400〜1540px）
         padding: 8px 14px;
     }
 
-    /* 全体の横幅を縮める */
     .container,
     .profile,
     .purchase,
@@ -172,7 +151,6 @@ PC（1400〜1540px）
         margin: 0 auto;
     }
 
-    /* カード系は幅100%に */
     .card,
     .profile__item-card,
     .purchase__card,
@@ -181,7 +159,6 @@ PC（1400〜1540px）
         width: 100%;
     }
 
-    /* 画像は横幅いっぱいに */
     .profile__item-image img,
     .purchase__image img,
     .item__image img {
@@ -189,7 +166,6 @@ PC（1400〜1540px）
         height: auto;
     }
 
-    /* 文字サイズを少し小さく */
     h1,
     h2,
     h3,

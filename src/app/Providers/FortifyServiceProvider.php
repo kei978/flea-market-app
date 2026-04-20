@@ -6,15 +6,8 @@ use App\Actions\Fortify\CreateNewUser;
 use App\Actions\Fortify\ResetUserPassword;
 use App\Actions\Fortify\UpdateUserPassword;
 use App\Actions\Fortify\UpdateUserProfileInformation;
-use App\Http\Requests\LoginRequest;
-use Illuminate\Cache\RateLimiting\Limit;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Hash;
 use Laravel\Fortify\Fortify;
-use Illuminate\Support\Facades\Auth;
 use Laravel\Fortify\Contracts\LoginResponse;
 use App\Actions\Fortify\LoginResponse as CustomLoginResponse;
 use Laravel\Fortify\Contracts\RegisterResponse;
@@ -34,14 +27,6 @@ class FortifyServiceProvider extends ServiceProvider
         Fortify::updateUserPasswordsUsing(UpdateUserPassword::class);
         Fortify::resetUserPasswordsUsing(ResetUserPassword::class);
 
-        // ログイン試行回数制限
-        RateLimiter::for('login', function (Request $request) {
-            $throttleKey = Str::transliterate(
-                Str::lower($request->input(Fortify::username())) . '|' . $request->ip()
-            );
-            return Limit::perMinute(5)->by($throttleKey);
-        });
-
         // ログイン画面
         Fortify::loginView(fn() => view('auth.login'));
 
@@ -56,17 +41,5 @@ class FortifyServiceProvider extends ServiceProvider
 
         $this->app->singleton(LoginResponse::class, CustomLoginResponse::class);
         $this->app->singleton(RegisterResponse::class, CustomRegisterResponse::class);
-
-        Fortify::redirects('login', function () {
-            $user = Auth::user();
-
-            // 未認証 → メール認証画面へ
-            if (! $user->hasVerifiedEmail()) {
-                return route('verification.notice');
-            }
-
-            // 認証済み → マイリストへ
-            return redirect('/?tab=mylist');
-        });
-    }
+}
 }

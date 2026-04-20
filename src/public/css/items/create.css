@@ -1,8 +1,10 @@
+/* 全体 */
 .item-create {
     width: 600px;
     margin: 40px auto;
 }
 
+/* タイトル */
 .item-create__title {
     margin-bottom: 30px;
     text-align: center;
@@ -19,19 +21,18 @@
 /* 各項目 */
 .form__label {
     margin: 30px 0 0 0;
-    font-weight: bold;
 }
 
 /* 商品画像 */
 .form__image-frame {
     border: 2px dashed #ccc;
-        padding: 40px 0;
-        border-radius: 6px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
+    padding: 40px 0;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
 
 .form__image-preview {
@@ -55,7 +56,7 @@
     display: none;
 }
 
-/* カテゴリー（丸タグ） */
+/* カテゴリー */
 .form__tag-list {
     display: flex;
     flex-wrap: wrap;
@@ -77,14 +78,14 @@
     padding: 5px 15px;
     border: 1px solid #ff5555;
     border-radius: 20px;
-    font-size: 13px;
     color: #ff5555;
+    font-size: 13px;
 }
 
 .form__tag-item input:checked+span {
     background: #ff5555;
-    color: #fff;
     border-color: #ff5555;
+    color: #fff;
 }
 
 /* 商品状態 */
@@ -117,7 +118,6 @@
 }
 
 /* 価格 */
-/* ¥ を表示する wrapper */
 .form__price-wrapper {
     position: relative;
 }
