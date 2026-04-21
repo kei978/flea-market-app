@@ -17,9 +17,8 @@
             {{-- プロフィール画像 --}}
             <div class="form__avatar">
                 <label for="avatar" class="form__avatar-image">
-                    @if ($user->avatar)
-                        <img id="avatarPreview" src="{{ $user->image_url }}?v={{ time() }}" alt="">
-                    @endif
+                    <img id="avatarPreview" src="{{ $user->avatar ? $user->image_url . '?v=' . time() : '' }}"
+                        alt="" style="{{ $user->avatar ? '' : 'display:none;' }}">
                 </label>
                 <label for="avatar" class="form__avatar-label">
                     画像を選択する
@@ -36,10 +35,11 @@
                 document.getElementById('avatar').addEventListener('change', function(e) {
                     const file = e.target.files[0];
                     if (!file) return;
-
                     const reader = new FileReader();
                     reader.onload = function(event) {
-                        document.getElementById('avatarPreview').src = event.target.result;
+                        const preview = document.getElementById('avatarPreview');
+                        preview.src = event.target.result;
+                        preview.style.display = 'block'; // ← これが重要
                     };
                     reader.readAsDataURL(file);
                 });
